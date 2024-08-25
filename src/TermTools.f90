@@ -8,7 +8,7 @@ module TermTools
 
 
     private
-        integer, parameter :: Lenght = 80
+        integer, parameter :: Lenght = 100
 
     interface inLine                                     
         module procedure inLine_integer, inLine_real     

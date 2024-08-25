@@ -1,2 +1,2 @@
 # TermTools
-Minimal Fortran Terminal Aesthetics Improvement
+A Minimally Agradable Fortran Terminal

@@ -12,7 +12,7 @@ program Test
     call inLine("IntegerIntegerInteger", Num)
     call inLine("Real   ", pi)
     call LineBox()
-
+    call LTextBox("An Text at Left ")
 
 end program Test
 

@@ -3,11 +3,15 @@ module TermTools
     public :: TitleBox
     public :: LineBox
     public :: TextBox
+    public :: LTextBox
     public :: MainTitle
     public :: InLine
 
 
     private
+        character(len = *), parameter :: FMT1 = "(A, I5, A, I5, A)"
+        character(len = *), parameter :: FMT2 = "(A, I5, A)"
+
         integer, parameter :: Lenght = 100
 
     interface inLine                                     
@@ -27,16 +31,31 @@ module TermTools
         end subroutine
 
         subroutine TextBox(Text)
-            character(len = *) :: Text
-            integer            :: Left, Right
+            character(len = *)      :: Text
+            integer                 :: Left, Right
+            character(len = 50)     :: style
 
             Left  = (Lenght - LEN(TRIM(Text)))/2         
             Right =  Lenght - LEN(TRIM(Text)) - Left - 2 
-            print*, "|" // REPEAT(' ', Left) // Text // REPEAT(' ', Right) // "|"
+           
+            write(style, FMT1) "(x, '|', ", Left ,"x, A, ", Right, "x, '|')"
+            print style, Text
+        end subroutine
+
+        subroutine LTextBox(Text)
+            character(len = *) :: Text
+            character(len = 50) :: style
+            integer Right
+
+            ! Calculate Format
+            Right = Lenght - Len(Text) - 6
+            write(style, FMT2) "(1x, '|', 4x, A, ",  Right, "x, '|')"
+            
+            print style, Text 
         end subroutine
 
         subroutine LineBox()
-            print*, '+' // REPEAT('-', Lenght - 2) // '+'
+            print"(1x, '+', A, '+')", REPEAT('-', Lenght - 2)
         end subroutine
 
         subroutine MainTitle(ProgramName, AuthorName, eMail, Version)
@@ -56,34 +75,21 @@ module TermTools
         ! ====================================================================
         subroutine inLine_real(Label, Var)
             character(len = *), intent(in)    :: Label
-            character(len = Lenght + 1)       :: NewLine
-            character(len = Lenght)           :: NewVar
-            real(8)                           :: Var
-            integer                           :: Right
+            character(len = 35)               :: NewLabel
+            real(8), intent(in)               :: Var
 
-            write(NewVar, *) Var
-            
-            Right = Lenght/2 - LEN(Label)
-            
-            write(NewLine, *) '|    ' // Label // REPEAT(' ', Right) // '>>>', trim(NewVar) 
-            NewLine(Lenght + 1:Lenght + 1) = '|'
-            
-            print*, ADJUSTL(NewLine)
+            NewLabel = ADJUSTL(Label)                         
+            print "(1x, '|', 4x, A35, 5x,'::', 4x, F10.8, 38x, '|')", NewLabel, Var 
         end subroutine
-    
+
+
         subroutine inLine_integer(Label, Var)
             character(len = *), intent(in)    :: Label                                      
-            character(len = Lenght + 1)       :: NewLine                                    
-            character(len = Lenght)           :: NewVar                                     
-            integer                           :: Var                                        
-            integer                           :: Right                                      
-                                                                                            
-            write(NewVar, *) Var                                                            
-                                                                                            
-            Right = Lenght/2 - LEN(Label)                                                   
-            write(NewLine, *) '|    ' // Label // REPEAT(' ', Right) // '>>>', trim(NewVar) 
-            NewLine(Lenght + 1:Lenght + 1) = '|'                                            
-            print*, ADJUSTL(NewLine)                                                        
+            character(len = 35)               :: NewLabel
+            integer                           :: Var
+            
+            NewLabel = ADJUSTL(Label)                         
+            print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 38x, '|')", NewLabel, Var 
         end subroutine                   
         ! ====================================================================
         ! End of Polymorphism 

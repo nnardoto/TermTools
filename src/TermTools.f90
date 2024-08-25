@@ -15,7 +15,7 @@ module TermTools
         integer, parameter :: Lenght = 100
 
     interface inLine                                     
-        module procedure inLine_integer, inLine_real     
+        module procedure inLine_integer, inLine_integer_of, inLine_real     
     end interface inLine                                 
 
     contains
@@ -90,7 +90,16 @@ module TermTools
             
             NewLabel = ADJUSTL(Label)                         
             print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 38x, '|')", NewLabel, Var 
-        end subroutine                   
+        end subroutine 
+
+        subroutine inLine_integer_of(Label, Var, Var2)
+            character(len = *), intent(in)    :: Label                                      
+            character(len = 35)               :: NewLabel
+            integer                           :: Var, Var2
+            
+            NewLabel = ADJUSTL(Label)                         
+            print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 10x, 'of', I10, 16x, '|')", NewLabel, Var, Var2 
+        end subroutine
         ! ====================================================================
         ! End of Polymorphism 
         ! ====================================================================

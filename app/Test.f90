@@ -13,6 +13,7 @@ program Test
     call inLine("Real   ", pi)
     call LineBox()
     call LTextBox("An Text at Left ")
+    call inLine("Something: ", 1123125, 2132310)
 
 end program Test
 

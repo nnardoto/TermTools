@@ -115,7 +115,7 @@ module TermTools
             integer                           :: Var, Var2, Thread                                               
                                                                                                          
             NewLabel = ADJUSTL(Label)                                                                    
-            print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 10x, 'of', I10, 'Thread: ', I4, 5x, '|')", NewLabel, Var, Var2, Thread  
+            print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 10x, 'of', I10, 3x, 'Thread: ', I4, x, '|')", NewLabel, Var, Var2, Thread  
         end subroutine                                                                                   
 
 

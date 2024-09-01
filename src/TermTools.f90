@@ -15,7 +15,7 @@ module TermTools
         integer, parameter :: Lenght = 100
 
     interface inLine                                     
-        module procedure inLine_integer, inLine_integer_of, inLine_real     
+        module procedure inLine_integer, inLine_integer_of, inLine_integer_of_parallel, inLine_real     
     end interface inLine                                 
 
     contains

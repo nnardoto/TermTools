@@ -76,7 +76,7 @@ module TermTools
         subroutine inLine_real(Label, Var)
             character(len = *), intent(in)    :: Label
             character(len = 35)               :: NewLabel
-            real(4), intent(in)               :: Var
+            real, intent(in)                  :: Var
 
             NewLabel = ADJUSTL(Label)                         
             print "(1x, '|', 4x, A35, 5x,'::', 4x, F10.8, 38x, '|')", NewLabel, Var 

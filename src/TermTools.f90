@@ -79,7 +79,7 @@ module TermTools
             real, intent(in)                  :: Var
 
             NewLabel = ADJUSTL(Label)                         
-            print "(1x, '|', 4x, A35, 5x,'::', 4x, F10.8, 38x, '|')", NewLabel, Var 
+            print "(1x, '|', 4x, A35, 5x,'::', 4x, F12.8, 36x, '|')", NewLabel, Var 
         end subroutine
 
         subroutine inLine_double(Label, Var)
@@ -88,7 +88,7 @@ module TermTools
             real(8), intent(in)               :: Var
 
             NewLabel = ADJUSTL(Label)                         
-            print "(1x, '|', 4x, A35, 5x,'::', 4x, F10.8, 38x, '|')", NewLabel, Var 
+            print "(1x, '|', 4x, A35, 5x,'::', 4x, F12.8, 36x, '|')", NewLabel, Var 
         end subroutine
 
         subroutine inLine_integer(Label, Var)
@@ -108,6 +108,18 @@ module TermTools
             NewLabel = ADJUSTL(Label)                         
             print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 10x, 'of', I10, 16x, '|')", NewLabel, Var, Var2 
         end subroutine
+
+        subroutine inLine_integer_of_parallel(Label, Var, Var2, Thread)                                                   
+            character(len = *), intent(in)    :: Label                                                   
+            character(len = 35)               :: NewLabel                                                
+            integer                           :: Var, Var2                                               
+                                                                                                         
+            NewLabel = ADJUSTL(Label)                                                                    
+            print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 10x, 'of', I10, 'Thread: ', I4, 5x, '|')", NewLabel, Var, Var2, Thread  
+        end subroutine                                                                                   
+
+
+
         ! ====================================================================
         ! End of Polymorphism 
         ! ====================================================================

@@ -112,7 +112,7 @@ module TermTools
         subroutine inLine_integer_of_parallel(Label, Var, Var2, Thread)                                                   
             character(len = *), intent(in)    :: Label                                                   
             character(len = 35)               :: NewLabel                                                
-            integer                           :: Var, Var2                                               
+            integer                           :: Var, Var2, Thread                                               
                                                                                                          
             NewLabel = ADJUSTL(Label)                                                                    
             print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 10x, 'of', I10, 'Thread: ', I4, 5x, '|')", NewLabel, Var, Var2, Thread  

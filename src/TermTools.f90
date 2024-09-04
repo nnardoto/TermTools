@@ -79,7 +79,7 @@ module TermTools
             real, intent(in)                  :: Var
 
             NewLabel = ADJUSTL(Label)                         
-            print "(1x, '|', 4x, A35, 5x,'::', 4x, F12.8, 36x, '|')", NewLabel, Var 
+            print "(1x, '|', 4x, A35, 5x,'::', 4x, F12.6, 36x, '|')", NewLabel, Var 
         end subroutine
 
         subroutine inLine_double(Label, Var)

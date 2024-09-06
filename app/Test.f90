@@ -2,7 +2,7 @@ program Test
     use TermTools
 
 
-    real(8), parameter :: pi  = 3.14d0
+    real, parameter :: pi  = 312.14d0
     integer, parameter :: Num = 1012312
 
 

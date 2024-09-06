@@ -12,7 +12,7 @@ module TermTools
         character(len = *), parameter :: FMT1 = "(A, I5, A, I5, A)"
         character(len = *), parameter :: FMT2 = "(A, I5, A)"
 
-        integer, parameter :: Lenght = 100
+        integer, parameter :: Lenght = 80
 
     interface inLine                                     
         module procedure inLine_integer, inLine_integer_of, inLine_integer_of_parallel, inLine_real     
@@ -79,7 +79,7 @@ module TermTools
             real, intent(in)                  :: Var
 
             NewLabel = ADJUSTL(Label)                         
-            print "(1x, '|', 4x, A35, 5x,'::', 4x, F12.6, 36x, '|')", NewLabel, Var 
+            print "(1x, '|', 4x, A25, 5x,'::', 4x, F12.6, 26x, '|')", NewLabel, Var 
         end subroutine
 
         subroutine inLine_double(Label, Var)
@@ -88,7 +88,7 @@ module TermTools
             real(8), intent(in)               :: Var
 
             NewLabel = ADJUSTL(Label)                         
-            print "(1x, '|', 4x, A35, 5x,'::', 4x, F12.8, 36x, '|')", NewLabel, Var 
+            print "(1x, '|', 4x, A25, 5x,'::', 4x, F12.8, 26x, '|')", NewLabel, Var 
         end subroutine
 
         subroutine inLine_integer(Label, Var)
@@ -97,7 +97,7 @@ module TermTools
             integer                           :: Var
             
             NewLabel = ADJUSTL(Label)                         
-            print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 38x, '|')", NewLabel, Var 
+            print "(1x, '|', 4x, A25, 5x,'::', 5x, I10, 27x, '|')", NewLabel, Var 
         end subroutine 
 
         subroutine inLine_integer_of(Label, Var, Var2)
@@ -106,7 +106,7 @@ module TermTools
             integer                           :: Var, Var2
             
             NewLabel = ADJUSTL(Label)                         
-            print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 10x, 'of', I10, 16x, '|')", NewLabel, Var, Var2 
+            print "(1x, '|', 4x, A25, 5x,'::', 4x, I10, 10x, 'of', I10, 6x, '|')", NewLabel, Var, Var2 
         end subroutine
 
         subroutine inLine_integer_of_parallel(Label, Var, Var2, Thread)                                                   
@@ -115,7 +115,7 @@ module TermTools
             integer                           :: Var, Var2, Thread                                               
                                                                                                          
             NewLabel = ADJUSTL(Label)                                                                    
-            print "(1x, '|', 4x, A35, 5x,'::', 4x, I10, 10x, 'of', I10, 3x, 'Thread: ', I4, x, '|')", NewLabel, Var, Var2, Thread  
+            print "(1x, '|', 4x, A25, 5x,'::', 4x, I8, 5x, 'of', I8, 3x, 'Thread: ', I3, x, '|')", NewLabel, Var, Var2, Thread  
         end subroutine                                                                                   
 
 
